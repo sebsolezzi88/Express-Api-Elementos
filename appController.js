@@ -28,7 +28,7 @@ function loadCSV() {
 
 //Renderizar página principal
 export const renderIndex = async (req,res)=>{
-    return render('index');
+    return res.render('index');
 }
 
 //Obtener todos los elementos químicos
