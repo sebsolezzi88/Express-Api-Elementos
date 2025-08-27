@@ -93,3 +93,26 @@ export const getElementsByPhse = async (req, res) => {
 
   return res.status(200).json(elementsFiltered);
 }
+
+//Obtener elementos por su tipo
+export const getElementsByType = async (req, res) => {
+  let { type } = req.params;
+  type = capitalize(type);
+  const valitType = ["Metal", "Nonmetal", "Metalloid"];
+
+  //Verficar que sea un tipo valido
+  if (!valitType.includes(type)) {
+    return res
+      .status(400)
+      .json({ error: "Solo se admite Metal, Nonmetal y Metalloid" });
+  }
+  const elements = await loadCSV();
+  const elementsFiltered = elements.filter((element) => element.Type === type);
+  if (elementsFiltered.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró ningún registro con ese tipo" });
+  }
+  return res.status(200).json(elementsFiltered);
+}
+
