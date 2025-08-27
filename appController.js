@@ -111,7 +111,7 @@ export const getElementsByType = async (req, res) => {
       .json({ error: "Solo se admite Metal, Nonmetal y Metalloid" });
   }
 
-  const elementsFiltered = elements.filter((element) => element.Type === type);
+  const elementsFiltered = elementsCache.filter((element) => element.Type === type);
   if (elementsFiltered.length === 0) {
     return res
       .status(404)
