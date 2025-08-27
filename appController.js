@@ -68,3 +68,28 @@ const getElementByAtomicNumber = async (req, res) => {
 
   return res.status(200).json(element);
 }
+
+//Obtener elementos por su fase
+export const getElementsByPhse = async (req, res) => {
+  let { phase } = req.params;
+  phase = capitalize(phase);
+  const valitPhase = ["Solid", "Liquid", "Gas"];
+
+  //Verificar que sea una fase valida
+  if (!valitPhase.includes(phase)) {
+    return res
+      .status(400)
+      .json({ error: "Solo se admite Solid, Liquid y Gas" });
+  }
+
+  const elements = await loadCSV();
+  const elementsFiltered = elements.filter((element) => element.Phase === phase);
+
+  if (elementsFiltered.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró ningún elemento con esa fase" });
+  }
+
+  return res.status(200).json(elementsFiltered);
+}
