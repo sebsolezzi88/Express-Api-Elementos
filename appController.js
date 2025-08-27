@@ -50,7 +50,7 @@ export const getElementBySymbol = async (req, res) => {
 };
 
 //Obtener elemento su número atómico
-const getElementByAtomicNumber = async (req, res) => {
+export const getElementByAtomicNumber = async (req, res) => {
   let { number } = req.params;
 
   //Verifica que el usuario solo ingrese números
