@@ -87,7 +87,7 @@ export const getElementsByPhase = async (req, res) => {
   }
 
   
-  const elementsFiltered = elements.filter((element) => element.Phase === phase);
+  const elementsFiltered = elementsCache.filter((element) => element.Phase === phase);
 
   if (elementsFiltered.length === 0) {
     return res
