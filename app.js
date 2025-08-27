@@ -3,6 +3,7 @@ import routes from './appRouter.js';
 
 const app  = expres();
 
+app.set("view engine", "ejs"); //Motor de plantillas
 //Importando las rutas
 app.use('/',routes);
 
