@@ -26,6 +26,10 @@ function loadCSV() {
   console.log("CSV cargado en memoria con", elementsCache.length, "elementos");
 })();
 
+//Renderizar página principal
+export const renderIndex = async (req,res)=>{
+    return render('index');
+}
 
 //Obtener todos los elementos químicos
 export const getAllElements = async (req, res) => {
