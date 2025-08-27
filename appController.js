@@ -16,3 +16,9 @@ function loadCSV() {
       .on("error", (err) => reject(err));
   });
 }
+
+//Obtener todos los elementos químicos
+export const getAllElements = async (req, res) => {
+  const elements = await loadCSV();
+  return res.status(200).json(elements);
+};
