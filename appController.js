@@ -38,11 +38,26 @@ export const getAllElements = async (req, res) => {
 
 //Obtener elemento por su simbolo ej He,O, Fe
 export const getElementBySymbol = async (req, res) => {
-  const elements = await loadCSV();
   let { symbol } = req.params;
   symbol = capitalize(symbol);
   
   const element = elementsCache.filter((element) => element.Symbol === symbol);
+
+  if (element.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró ningún registro con ese símbolo" });
+  }
+
+  return res.status(200).json(element);
+};
+
+//Obtener elemento por su nombre ej: Lithium
+export const getElementByName= async (req, res) => {
+  let { name } = req.params;
+  name = capitalize(name);
+  
+  const element = elementsCache.filter((element) => element.Name === name);
 
   if (element.length === 0) {
     return res
