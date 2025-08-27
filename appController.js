@@ -48,3 +48,23 @@ export const getElementBySymbol = async (req, res) => {
 
   return res.status(200).json(element);
 };
+
+//Obtener elemento su número atómico
+const getElementByAtomicNumber = async (req, res) => {
+  let { number } = req.params;
+
+  //Verifica que el usuario solo ingrese números
+  if (isNaN(number)) {
+    return res.status(400).json({ error: "El parámetro debe ser un número" });
+  }
+
+  const element = elementsCache.filter((element) => element.AtomicNumber === number);
+
+  if (element.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró ningún registro con ese número" });
+  }
+
+  return res.status(200).json(element);
+}
