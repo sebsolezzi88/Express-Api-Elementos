@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Api Elementos Químicos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-teal-600 to-green-500 text-white shadow-md">
+      <h1 class="text-3xl md:text-4xl font-bold text-center py-6">
+        🔬 API Elementos Químicos
+      </h1>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-5xl mx-auto px-6 py-10">
+      <section class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+          Bienvenido a la API de Elementos Químicos
+        </h2>
+        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+          ¡Hola! Bienvenido a esta API desarrollada con Javascript, tu puerta de acceso rápida 
+          y sencilla a información detallada sobre los elementos de la tabla periódica. 
+          Aquí podrás consultar propiedades como el número atómico, símbolo, 
+          grupo y más.
+        </p>
+      </section>
+
+      <!-- Rutas -->
+      <section>
+        <h3 class="text-xl md:text-2xl font-bold text-center text-teal-700 mb-6">
+          🔗 Rutas de la API
+        </h3>
+        <ul class="space-y-6 text-lg">
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Todos los elementos:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/elements/all" target="_blank" class="hover:underline">
+                /api/v1/elements/all
+              </a>
+            </code><br />
+            Retorna todos los elementos en formato JSON.
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por símbolo:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/symbol/H" target="_blank" class="hover:underline">
+                /api/v1/symbol/H
+              </a>
+            </code><br />
+            Reemplaza <code>H</code> con el símbolo del elemento (ej. He, O).
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por nombre:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/name/oxygen" target="_blank" class="hover:underline">
+                /api/v1/name/oxygen
+              </a>
+            </code><br />
+            Reemplaza <code>oxygen</code> con el nombre del elemento en inglés.
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por número atómico:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/atomic-number/8" target="_blank" class="hover:underline">
+                /api/v1/atomic-number/8
+              </a>
+            </code><br />
+            Reemplaza <code>8</code> con el número atómico deseado.
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por fase:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/phase/gas" target="_blank" class="hover:underline">
+                /api/v1/phase/gas
+              </a>
+            </code><br />
+            Usa valores como <code>solid</code>, <code>liquid</code>, <code>gas</code>.
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por tipo:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/type/metalloid" target="_blank" class="hover:underline">
+                /api/v1/type/metalloid
+              </a>
+            </code><br />
+            Ejemplo: <code>metal</code>, <code>nonmetal</code>, <code>metalloid</code>
+          </li>
+
+          <li class="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition">
+            <strong>Buscar por grupo:</strong><br />
+            <code class="text-teal-600">
+              <a href="/api/v1/group/nonmetal" target="_blank" class="hover:underline">
+                /api/v1/group/nonmetal
+              </a>
+            </code><br />
+            Ejemplo: <code>metal</code>, <code>nonmetal</code>, <code>metalloid</code>, 
+            <code>noble-gas</code>, <code>alkali-metal</code>, <code>halogen</code>, 
+            <code>transition-metal</code>, <code>alkaline-earth-metal</code>, 
+            <code>other-metal</code>, <code>actinide</code>, <code>lanthanide</code>.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-teal-600 to-green-500 text-white text-center py-6 mt-10 shadow-inner">
+      <p class="mb-2 text-lg">
+        🔬 API de Elementos Químicos | Proyecto con Node.js, Express y Ejs
+      </p>
+      <p class="mb-4">
+        Desarrollado por <strong>Sebastían Solezzi</strong> &copy; 2025
+      </p>
+      <a
+        href="https://github.com/sebsolezzi88/Express-Api-Elementos"
+        target="_blank"
+        class="bg-white text-teal-700 px-4 py-2 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
+      >
+        Ver en GitHub
+      </a>
+    </footer>
+  </body>
+</html>
