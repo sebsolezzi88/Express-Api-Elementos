@@ -144,10 +144,10 @@ export const getElementsByGroup = async (req, res) => {
     });
   }
 
-  const elementsFiltered = elements.filter(
+  const elementsFiltered = elementsCache.filter(
     (element) => element.GroupClassification === groupMap[group]
   );
-  
+
   if (elementsFiltered.length === 0) {
     return res
       .status(404)
