@@ -82,7 +82,7 @@ export const getElementsByPhse = async (req, res) => {
       .json({ error: "Solo se admite Solid, Liquid y Gas" });
   }
 
-  const elements = await loadCSV();
+  
   const elementsFiltered = elements.filter((element) => element.Phase === phase);
 
   if (elementsFiltered.length === 0) {
@@ -106,7 +106,7 @@ export const getElementsByType = async (req, res) => {
       .status(400)
       .json({ error: "Solo se admite Metal, Nonmetal y Metalloid" });
   }
-  const elements = await loadCSV();
+
   const elementsFiltered = elements.filter((element) => element.Type === type);
   if (elementsFiltered.length === 0) {
     return res
@@ -116,3 +116,42 @@ export const getElementsByType = async (req, res) => {
   return res.status(200).json(elementsFiltered);
 }
 
+//Obtener elementos por su grupo
+export const getElementsByGroup = async (req, res) => {
+  let { group } = req.params;
+
+  //Diccionario de converción
+  const groupMap = {
+    "nonmetal": "Nonmetal",
+    "noble-gas": "Noble Gas",
+    "alkali-metal": "Alkali Metal",
+    "alkaline-earth-metal": "Alkaline Earth Metal",
+    "metalloid": "Metalloid",
+    "halogen": "Halogen",
+    "other-metal": "Other Metal",
+    "transition-metal": "Transition Metal",
+    "lanthanide": "Lanthanide",
+    "actinide": "Actinide"
+  };
+
+   group = group.toLowerCase();
+
+  // Validar si existe en el diccionario
+  if (!groupMap[group]) {
+    return res.status(400).json({
+      error:
+        "Solo se admite: nonmetal, noble-gas, alkali-metal, alkaline-earth-metal, metalloid, halogen, other-metal, transition-metal, lanthanide, actinide"
+    });
+  }
+
+  const elementsFiltered = elements.filter(
+    (element) => element.GroupClassification === groupMap[group]
+  );
+  
+  if (elementsFiltered.length === 0) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró ningún registro con ese grupo" });
+  }
+  return res.status(200).json(elementsFiltered);
+}
