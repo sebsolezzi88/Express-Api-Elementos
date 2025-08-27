@@ -74,7 +74,7 @@ export const getElementByAtomicNumber = async (req, res) => {
 }
 
 //Obtener elementos por su fase
-export const getElementsByPhse = async (req, res) => {
+export const getElementsByPhase = async (req, res) => {
   let { phase } = req.params;
   phase = capitalize(phase);
   const valitPhase = ["Solid", "Liquid", "Gas"];
